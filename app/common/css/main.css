@@ -1,0 +1,353 @@
+.container {
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.main-content {
+  margin: 0 auto;
+  width: 100%;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  /* color: #202D40; */
+  /*--color_shallow: #595591;*/
+  --color: '';
+  --primary_color: '';
+  --color_shallow: '';
+  --count_number: '';
+  --count_number_shallow: '';
+  --font_color: '';
+}
+
+/* 解决 document.body.clientHeight 为0 */
+html,body {
+  height:100%
+}
+
+textarea {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
+}
+
+.main-content span.title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: nowrap;
+}
+
+/* 解决高度塌陷和边距重叠 */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 解决富文本框中link显示问题 */
+.ck-rounded-corners .ck.ck-balloon-panel, .ck.ck-balloon-panel.ck-rounded-corners {
+  z-index: 10055 !important;
+}
+.el-card{
+  border: 1px solid #ebeef5;
+}
+.table-card > .el-card__body {
+  padding: 10px 20px;
+}
+
+/* Safari 表格不错位 */
+.el-table__body {
+  width: 100%;
+  table-layout: fixed !important;
+}
+
+/* <-- 表格拖拽表头调整宽度，在 t-bable 上添加 border 属性，并添加 adjust-table 类名 */
+.adjust-table td {
+  border-right: 0 !important;
+}
+
+.adjust-table th {
+  border-right-color: white !important;
+}
+
+.adjust-table.ms-select-all-fixed th:first-child.el-table-column--selection {
+  border-right-color: #DCDFE6 !important;
+}
+
+.adjust-table {
+  border-color: white !important;
+}
+
+.adjust-table:after {
+  background-color: white !important;
+}
+
+.adjust-table th:not([class*="el-table-column--selection"]):hover:after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  right: 0;
+  height: 50%;
+  width: 2px;
+  background-color: #EBEEF5 !important;
+}
+
+.adjust-table tr:hover td {
+  border-right: 0 !important;
+}
+
+/* 表格拖拽表头调整宽度 --> */
+
+/* <-- 表格 input 编辑效果 */
+.table-edit-input .el-textarea__inner {
+  border-style: hidden;
+}
+
+.table-edit-input.is-disabled .el-textarea__inner {
+  background-color: white;
+  color: #606266;
+}
+
+.el-table .current-row .table-edit-input {
+  border: 1px solid #DCDFE6;
+  border-radius: 5px;
+}
+
+.table-edit-input .el-textarea__inner:focus {
+  border: 1px solid #409EFF;
+}
+
+/* 表格 input 编辑效果 --> */
+
+.ms-border {
+  padding: 10px;
+  border: #DCDFE6 solid 1px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+/* 修复带长度限制的文本框，内容太长造成的无法查看内容的问题 */
+
+.el-input__inner[maxlength] {
+  padding-right: 60px;
+}
+
+/* 输入框无圆角 */
+.el-input-group__append, .el-input-group__prepend {
+  border-radius: 0;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar{
+  width: 10px;
+  height: 10px;
+  position: fixed;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 1em;
+  background-color: rgba(50,50,50,.3);
+  position: fixed;
+}
+::-webkit-scrollbar-track{
+  border-radius: 1em;
+  background-color: transparent;
+  position: fixed;
+}
+
+/* 时间 */
+.el-date-editor--datetimerange.el-input, .el-date-editor--datetimerange.el-input__inner {
+  width: 100%;
+}
+
+/* <-- 表格全选样式 */
+.ms-select-all th:first-child.el-table-column--selection {
+  border: 1px solid #DCDFE6;
+  border-radius:5px;
+  padding: 0px;
+  margin-top: 10px;
+  display: inline-block;
+  /*margin-top: 25px;*/
+  width: 50px;
+}
+
+.ms-select-all th:nth-child(2) {
+  overflow: visible;
+}
+
+.ms-select-all th:first-child.el-table-column--selection>.cell {
+  padding: 5px;
+  width: 35px;
+}
+
+.ms-select-all th:nth-child(2)>.cell {
+  overflow: visible;
+}
+
+.ms-select-all th:nth-child(2) .el-icon-arrow-down {
+  position: absolute;
+  display: inline-block;
+  top: -12px;
+  left: -38px;
+  width: 30px;
+}
+/* 表格全选样式 --> */
+
+/* <-- 表格全选样式 (列固定表格样式) */
+.ms-select-all-fixed th:first-child.el-table-column--selection {
+  border: 1px solid #DCDFE6;
+  border-radius:5px;
+  padding: 0px;
+  margin-top: 10px;
+  display: inline-block;
+  /*margin-top: 25px;*/
+  width: 50px;
+}
+
+.ms-select-all-fixed th:nth-child(2) {
+  overflow: visible;
+}
+
+.ms-select-all-fixed th:first-child.el-table-column--selection>.cell {
+  padding: 5px;
+  width: 35px;
+}
+
+.ms-select-all-fixed th:nth-child(2)>.cell {
+  overflow: visible;
+}
+
+.ms-select-all-fixed th:nth-child(2) .el-icon-arrow-down {
+  position: absolute;
+  display: inline-block;
+  top: -9px;
+  left: -30px;
+  width: 30px;
+}
+/* 表格全选样式 --> */
+
+
+/* 表格标题 */
+.el-card__header{
+  padding: 15px 20px;
+}
+.el-table__body tr.current-row>td{
+  background: #fafbfd;
+}
+
+/* 按钮 */
+.el-button--primary-blue {
+  color: #FFF;
+  background-color: #202D40;
+  border-color: #202D40;
+}
+.el-button--primary-blue:focus, 
+.el-button--primary-blue:hover,
+.el-button--primary-blue.is-plain:focus, 
+.el-button--primary-blue.is-plain:hover {
+  color: #FFF;
+  background-color: rgba(32, 45, 64, .8);
+  border-color: rgba(32, 45, 64, .8);
+}
+
+.el-button,
+.el-button--mini, .el-button--small {
+  border-radius: 2px;
+}
+
+/* button组 */
+.el-button-group>.el-button.is-plain:focus, .el-button-group>.el-button.is-plain:hover {
+  border-color: #0088FF;
+}
+
+/* tabs */
+.el-tabs__item .el-dropdown .el-button--primary.is-plain{
+  border: 1px solid #202d40;
+  color: #202D40;
+  background-color: transparent;
+}
+.el-tabs__item .el-dropdown .el-button--primary.is-plain:hover{
+  background-color: #202d40;
+  color: #fff;
+}
+.el-tabs__item .el-dropdown .el-button--primary.is-plain.el-button--mini{
+  padding: 3px 5px;
+}
+.ms-table-header .operate-button .el-button.is-plain{
+  border: 1px solid #202d40;
+  color: #ffffff;
+  background-color: #202d40;
+}
+.ms-table-header .operate-button .el-button.is-plain:hover{
+  background-color: #606c80;
+  border: 1px solid #606c80;
+}
+div.search.el-input input[type="text"]:focus{
+  border: 1px solid #3385ff;
+}
+
+div.search.el-input input[type="text"]:focus + .el-input__prefix{
+  color:#3385ff;
+}
+div.search-content .el-input input[type="text"]:focus{
+  border: 1px solid #3385ff;
+}
+
+div.search-content .el-input input[type="text"]:focus + .el-input__prefix{
+  color:#3385ff;
+}
+.input-with-select.el-input.el-input-group.el-input-group--prepend input[type="text"]:focus{
+  border: 1px solid #3385ff;
+}
+.el-input input[type="number"]:focus{
+  border: 1px solid #3385ff;
+}
+.el-input.el-input--small.el-input--suffix.is-focus input{
+  border: 1px solid #3385ff;
+}
+/* .el-select__tags input[class='el-select__input']:focus{
+  border: 1px solid #3385ff;
+} */
+.ms-main-div .ms-opt-btn button{
+  background-color: #202d40;
+  color: #fff;
+  border-color: #202D40;
+}
+.ms-main-div .ms-opt-btn button:hover{
+  background-color: #606c80;
+  border: 1px solid #606c80;
+  border-color: #606c80;
+  color: #ffffff;
+}
+.el-button--primary:not(.el-dropdown-selfdefine):hover{
+  background-color: #606c80;
+  border: 1px solid #606c80;
+  border-color: #606c80;
+}
+.el-button--primary:not(.el-dropdown-selfdefine):active{
+  background-color: #606c80;
+  border: 1px solid #606c80;
+  border-color: #606c80;
+}
+.el-button.is-plain:active{
+  background-color: transparent;
+  color: #202D40;
+  border-color: #202D40;
+}
+.el-table__body tbody tr td .show-more-btn{
+  /* display: none; */
+}
+.el-pager li.active{
+  color: #3385ff;
+}
+.el-button--primary.is-active, .el-button--primary:active{
+  background-color: #606c80;
+  border: 1px solid #606c80;
+  border-color: #606c80;
+  color: #ffffff;
+}

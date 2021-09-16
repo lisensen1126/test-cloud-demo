@@ -1,0 +1,32 @@
+{
+    "presets": [["@babel/preset-env"]],
+    "plugins": [
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-syntax-import-meta",
+        "@babel/plugin-proposal-export-namespace-from",
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        [
+            "@babel/plugin-proposal-class-properties",
+            {
+                "loose": true
+            }
+        ],
+        "@babel/plugin-proposal-json-strings",
+        "@babel/plugin-transform-modules-commonjs"
+    ],
+    "env": {
+        "test": {
+            "presets": ["@babel/preset-env"],
+            "plugins": ["dynamic-import-node"]
+        },
+        "development": {
+            "plugins": []
+        }
+    }
+}

@@ -1,0 +1,11 @@
+# About .dockerignore: https://docs.docker.com/engine/reference/builder/#/dockerignore-file
+.happypack
+.idea
+.vscode
+node_modules
+.yarn-cache
+.yarn-cache-server
+node_cache
+packages
+scripts
+docs
