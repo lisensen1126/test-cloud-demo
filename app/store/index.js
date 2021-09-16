@@ -23,9 +23,7 @@ const state = {
 
     testPlanViewSelectNode: {},
     parent: {
-        TAG: {
-            name: 'aa',
-        },
+        TAG: {},
     },
 };
 

@@ -1,24 +1,17 @@
-const initialState = {
-    tags: {
-        loading: true,
-        items: [],
-        pager: {
-            page: 0,
-            pageSize: 10,
-            totalPage: 0,
-            totalRow: 0,
-        },
-    },
-    aaaa: 'aaaaa',
-};
-export default (state = initialState, action) => {
+export default (state = {} || {}, action) => {
+    console.log('action', action);
+
     switch (action.type) {
-        case 'AA':
+        case 'ADDNAME':
+            console.log('触发reducers', state);
             return {
-                ...state,
-                aaaa: 'bbbbbb',
+                time: new Date().getTime(),
             };
         default:
-            return state;
+            return (
+                window.store.getState().TAG || {
+                    time: new Date().getTime(),
+                }
+            );
     }
 };

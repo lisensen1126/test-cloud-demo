@@ -11,8 +11,8 @@ const mutations = {
 
     setTestReviewSelectNode: (state, value) => (state.testReviewSelectNode = value),
     updateStore: (state, value) => {
-        console.log('vvvv', value);
         state.parent = value;
+        console.log('windowstore数据同步至vue中的state.parent', state.parent);
     },
     setTestReviewSelectNodeIds: (state, value) => (state.testReviewSelectNodeIds = value),
     setTestReviewModuleOptions: (state, value) => (state.testReviewModuleOptions = value),

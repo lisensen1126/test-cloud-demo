@@ -1,8 +1,10 @@
 <template>
     <el-col v-if="auth">
-        <button @click="changename">888888888888888888</button>
-        <div>{{ $store.state.parent.TAG }}</div>
         <div data-frontend-module-container="coding-frontend-test-cloud">
+            <button @click="changeName">点击修改时间</button>
+            <div>{{ $store.state.parent.TAG }}</div>
+            <br />
+            <br />
             <ms-view v-if="isReady" />
         </div>
     </el-col>
@@ -14,9 +16,7 @@ import { hasLicense, setColor, setDefaultTheme, saveLocalStorage } from '@/commo
 import { registerRequestHeaders } from '@/common/js/ajax';
 import { ORIGIN_COLOR } from '@/common/js/constants';
 import { Loading } from 'element-ui';
-// import { createStore } from 'redux';
 import tagReducer from '../redux/reducers';
-const store = window.microHook.store || window.reduxStore;
 export default {
     name: 'app',
     props: {},
@@ -32,29 +32,25 @@ export default {
         };
     },
     methods: {
-        changename() {
-            window.store.dispatch({ type: 'AA' });
-            console.log('store.getState()', store.getState());
+        changeName() {
+            console.log('更新时间', this);
+
+            window.store.dispatch({
+                type: 'ADDNAME',
+            });
         },
     },
     mounted() {
-        console.log('获取store的数据', window.microHook.injectAsyncReducer);
-        // this.$store.commit('setUserName', 'bbbbbbbbbbb');
-        console.log('ssssssss', this.$store.state);
-        // this.store.dispatch({ type: 'USERNAME' });
-
         window.store.subscribe(() => {
-            console.log('333');
+            const store = window.microHook.store || window.reduxStore;
+            console.log('store数据变化了', store.getState().TAG);
             this.$store.commit('updateStore', store.getState());
-            console.log('this', this.$store.state);
+            console.log('同步过后的vuex的TAG', this.$store.state);
         });
-        // console.log('store.getState()', store.getState());
-        // window.store.dispatch({ type: 'aaaaaa', payload: 'bbbbbbbbbb' });
-        // const store = window.microHook.store || window.reduxStore;
-        window.microHook.injectAsyncReducer('TAG', tagReducer);
     },
     created() {
         registerRequestHeaders();
+        window.microHook.injectAsyncReducer('TAG', tagReducer);
         let loadingInstance = Loading.service({ fullscreen: true });
         const projectId = localStorage.getItem('project_id');
         if (location.pathname.split('/')[2] === localStorage.getItem('project_name')) {
